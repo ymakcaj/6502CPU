@@ -1,3 +1,4 @@
+
 package Main.CPU;
 
 import Main.CPU.Byte;
@@ -8,10 +9,14 @@ public class CPU {
 	public Word programCounter;
 	public Word stackPointer;
 
-	public Byte A;
+	// here we create the CPU's registers
+	
+	public Byte A; 
 	public Byte X;
 	public Byte Y;
 
+	
+	// below we create the status flags
 	public Byte C = new Byte(1);
 	public Byte Z = new Byte(1);
 	public Byte I = new Byte(1);
@@ -20,9 +25,13 @@ public class CPU {
 	public Byte V = new Byte(1);
 	public Byte N = new Byte(1);
 
+	/**
+	   this method reset is to reset the CPU, 
+	 */
+	
 	void reset() {
-		programCounter = 0xFFFC;
-		stackPOinter = 0x00FF;
+		programCounter = Word(0xFFFC);
+		stackPointer = Word(0x00FF);
 		D = Byte(0);
 	}
 	
