@@ -9,7 +9,7 @@ public class Byte {
 	}
 
 	public Byte(int Byte) {
-		Integer newByte = new Integer(Byte);
-		this.Byte =  newByte.byteValue(); // need to type cast from int to byte here
+		Integer newByte = Integer.valueOf(Byte); // using .valueOf() as Integer(i) hasbeen depreciated
+		this.Byte = newByte.byteValue(); 
 	}
 }
