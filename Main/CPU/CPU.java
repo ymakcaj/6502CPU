@@ -1,38 +1,53 @@
 
 package Main.CPU;
 
-import Main.CPU.Byte;
-import Main.CPU. Word;
+import Main.CPU.Memory;
+import Main.CPU.WordMemory;
 
 public class CPU {
 
-	public Word programCounter;
-	public Word stackPointer;
+	public WordMemory programCounter;
+	public WordMemory stackPointer;
+	public Memory mem;
 
 	// here we create the CPU's registers
 	
-	public Byte A; 
-	public Byte X;
-	public Byte Y;
+	public byte A; 
+	public byte X;
+	public byte Y;
+
+	// should we just use the existing byte class and type cast? Might be easier
 
 	
 	// below we create the status flags
-	public Byte C = new Byte(1);
-	public Byte Z = new Byte(1);
-	public Byte I = new Byte(1);
-	public Byte D = new Byte(1);
-	public Byte B = new Byte(1);
-	public Byte V = new Byte(1);
-	public Byte N = new Byte(1);
+	public byte C = (byte) 1;
+	public byte Z = (byte) 1;
+	public byte I = (byte) 1;
+	public byte D = (byte) 1;
+	public byte B = (byte) 1;
+	public byte V = (byte) 1;
+	public byte N = (byte) 1;
 
 	/**
 	   this method reset is to reset the CPU, 
 	 */
 	
-	void reset() {
-		programCounter = Word(0xFFFC);
-		stackPointer = Word(0x00FF);
-		D = Byte(0);
+	public void reset() {
+		this.programCounter = new WordMemory(0xFFFC);
+		this.stackPointer = new WordMemory(0x00FF);
+		C = Z = I = D = B = V = N = (byte) 0;
+		A = X = Y = (byte) 0;
+		// memory.initiallise(); // still need to add in this cariable/method
 	}
+
+	public byte fetchByte(int Cycles, Mem memory){
+		
+		new byte data = (byte) memory[this.prgramCounter];
+		programCounter++;
+		Cycles--;
+		return data
+		
+	}
+
 	
 }
