@@ -17,4 +17,21 @@ public class WordMemory {
 	public WordMemory(int wordInput) { 
 		this.Word = (short) wordInput;
 	}
+
+	/* adding some setters */
+
+	public void setWord(short newShort) {
+		this.Word = newShort;
+	}
+	
+	public void setWord(int newInt) {
+		this.Word = (short) newInt;
+	}
+
+	/* now adding a getter */
+	public short getWord() {
+		return this.Word;
+	}
+	
 }
+

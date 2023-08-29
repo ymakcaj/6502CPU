@@ -6,7 +6,16 @@ public class Memory {
 	static final int MAX_MEM = 1024 * 64;
 	public byte[] data = new byte[MAX_MEM];
 
-	/* a basic method to set all bytes to 0*/
+	/**
+	 * a basic constructor 
+	 */
+
+	public Memory() {
+		// this.MAX_MEM = MAX_MEM;
+		// this.data = 
+	}
+
+	/** a basic method to set all bytes to 0*/
 
 	public void initialise() {
 		for (int i=0;i<MAX_MEM;i++) {
@@ -15,7 +24,7 @@ public class Memory {
 	}
 
 	
-	/* method to read 1 byte - of the address opperand */
+	/** method to read 1 byte - of the address opperand */
 	
 	public byte operator(int address) {
 		assert(address <= MAX_MEM);
