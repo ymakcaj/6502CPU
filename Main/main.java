@@ -17,11 +17,15 @@ public class main {
 		
 		CPU cpu = new CPU();
 		Memory mem = new Memory();
-		byte INS_LDA_IM = (byte) 0xA9;
+		int cycles = 3;
 		
 		cpu.reset();
-		mem.data[0xFFFC] = INS_LDA_IM;
-		cpu.execute(2, mem);
+		// inlining a small program
+		mem.data[0xFFFC] = CPU.INS_LDA_ZP;
+		mem.data[0xFFFD] = (byte) 0x42;
+		mem.data[0x0042] = (byte) 0x84;
+		// ending the program
+		cpu.execute(cycles, mem);
 		return 0;
 	}
 

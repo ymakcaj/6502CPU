@@ -28,10 +28,11 @@ public class WordMemory {
 		this.Word = (short) newInt;
 	}
 
+	
+
 	/* now adding a getter */
 	public short getWord() {
 		return this.Word;
 	}
-	
 }
 
