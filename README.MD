@@ -85,10 +85,12 @@ So, whilst the code is perhaps a little less user-friendly or readable, there is
 
 ### Taking care about signed vs unsigned binary datatypes
 
-```
-from chatgpt
+With Java's use of signed `byte` and `short` datatypes, some bitwise operations are needed to ensure that all variables are read as they would be by the 6502 processor. 
 
-The expression address & 0xFFFF is using a bitwise AND operation to "mask" the address value and ensure it fits within a certain range. In binary terms, the operation is not changing the most significant bit; it's actually preserving the least significant 16 bits of the address value.
+```C++
+
+```
+
 
 Let's break down the operation:
 
@@ -98,8 +100,7 @@ When you perform a bitwise AND operation between address and 0xFFFF, each bit po
 
 Here's an example of how the operation works in binary terms:
 
-plaintext
-Copy code
+```
 address:  1101 0010 0100 1011 (example short value)
 0xFFFF:   1111 1111 1111 1111
 
@@ -109,19 +110,24 @@ AND:      1101 0010 0100 1011 (address)
           1101 0010 0100 1011
 
 Result:   1101 0010 0100 1011
-As you can see, the bitwise AND operation preserves the least significant 16 bits of the address value and discards any bits beyond the 16th bit. This effectively ensures that the resulting value is within the valid range for your array index, which is what you want to achieve to avoid the ArrayIndexOutOfBoundsException.
 ```
+As you can see, the bitwise AND operation preserves the least significant 16 bits of the address value and discards any bits beyond the 16th bit. This effectively ensures that the resulting value is within the valid range for your array index, which is what you want to achieve to avoid the ArrayIndexOutOfBoundsException.
+
 
 
 ### In Java, ints are immutable
 
-```
-again from chatgpt:
+In Java, primitive data types like int are passed by value, which means their values are copied when passed to a method. As a result, changes to the parameter within the method do not affect the original value outside the method.
 
- In Java, primitive data types like int are passed by value, which means their values are copied when passed to a method. As a result, changes to the parameter within the method do not affect the original value outside the method.
+So, in the `CPU` class, there were methods that tried to increment the value of clock cycles down:
+
+```Java
+cycles--;
 ```
 
-we were trying to pass an int to a method, but causing an infinite loop
+However, this infact did not increment down `cycles` and led to an infinite loop. 
+
+The quick solution was to move it to after the switch case clause, with the slower solution being to create a mutableInt class.
 
 ### Methods and classes
  
