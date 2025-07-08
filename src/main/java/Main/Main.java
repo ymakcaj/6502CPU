@@ -1,15 +1,15 @@
 
 package Main;
 
-import Main.CPU.CPU;
-import Main.CPU.Memory;
+import CPU.CPU;
+import CPU.Memory;
 
 
-public class main {
+public class Main {
 
 
 	public static void main(String[] args) {
-		main mainInstance = new main();
+		Main mainInstance = new Main();
 		mainInstance.runMainMethod();
 	}
 

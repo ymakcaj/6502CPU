@@ -1,6 +1,4 @@
-package Main.CPU;
-
-import static org.junit.Assert.*;
+package CPU;
 
 public class Memory {
 	static final int MAX_MEM = 1024 * 64;
@@ -11,7 +9,7 @@ public class Memory {
 	 */
 
 	public Memory() {
-		this.data = data;
+		// this.data = data;  // actually this isn't needed
 	}
 
 	/** a basic method to set all bytes to 0*/

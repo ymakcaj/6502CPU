@@ -1,5 +1,5 @@
 
-package Main.CPU;
+package CPU;
 
 public class WordMemory {
 	public short Word;

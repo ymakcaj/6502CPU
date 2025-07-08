@@ -1,9 +1,9 @@
 
-package Main.CPU;
+package CPU;
 
-import Main.CPU.Memory;
-import Main.CPU.WordMemory;
-import Main.CPU.ByteMemory;
+import CPU.ByteMemory;
+import CPU.Memory;
+import CPU.WordMemory;
 
 public class CPU {
 

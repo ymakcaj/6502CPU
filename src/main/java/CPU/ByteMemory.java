@@ -1,6 +1,6 @@
 
 
-package Main.CPU;
+package CPU;
 
 public class ByteMemory {
 
